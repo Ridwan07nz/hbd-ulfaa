@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Ulfa 🎉</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Merienda:wght@700&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --pink1: #ff9ac9;
+        --pink2: #ff75b5;
+        --pink3: #ff4fa5;
+        --whiteGlass: rgba(255,255,255,0.35);
+    }
+
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #ffe6f2, #ffd0e6);
+        overflow-x: hidden;
+        color: #333;
+    }
+
+    /* Floating particles background */
+    .particle {
+        position: fixed;
+        width: 8px;
+        height: 8px;
+        background: rgba(255, 168, 214, 0.7);
+        border-radius: 50%;
+        animation: floatUp 8s linear infinite;
+        z-index: -1;
+    }
+
+    @keyframes floatUp {
+        0% { transform: translateY(100vh) scale(1); opacity: 1; }
+        100% { transform: translateY(-10vh) scale(0.3); opacity: 0; }
+    }
+
+    /* HERO SECTION */
+    .hero {
+        text-align: center;
+        padding: 70px 20px;
+        margin-top: 20px;
+        animation: fadeIn 1.6s ease;
+    }
+
+    .hero-title {
+        font-family: "Merienda", cursive;
+        font-size: 3rem;
+        background: -webkit-linear-gradient(var(--pink3), var(--pink1));
+        -webkit-background-clip: text;
+        color: transparent;
+        text-shadow: 0 0 25px rgba(255, 182, 216, 0.7);
+    }
+
+    .subtext {
+        font-size: 1.2rem;
+        opacity: 0.8;
+        margin-top: -10px;
+        animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* GLASS CARD SECTION */
+    .glass-card {
+        width: 85%;
+        max-width: 900px;
+        margin: 25px auto;
+        padding: 30px;
+        background: var(--whiteGlass);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(255, 135, 180, 0.25);
+        animation: fadeIn 1.5s ease;
+    }
+
+    .glass-card h2 {
+        font-family: "Merienda";
+        color: var(--pink3);
+        margin-bottom: 10px;
+    }
+
+    .glass-card p {
+        line-height: 1.8;
+        font-size: 1.1rem;
+    }
+
+    /* BUTTON */
+    .btn {
+        margin-top: 20px;
+        padding: 12px 32px;
+        border-radius: 40px;
+        border: none;
+        font-size: 1.2rem;
+        color: white;
+        background: linear-gradient(45deg, var(--pink2), var(--pink3));
+        box-shadow: 0 6px 18px rgba(255, 120, 170, 0.4);
+        cursor: pointer;
+        transition: 0.3s;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn:hover {
+        transform: scale(1.07);
+        box-shadow: 0 10px 25px rgba(255, 120, 170, 0.55);
+    }
+
+    /* Ripple effect */
+    .btn:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        background: white;
+        opacity: 0.4;
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        top: var(--y);
+        left: var(--x);
+        transition: width .5s ease, height .5s ease;
+    }
+
+    .btn:active:after {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* SPECIAL MESSAGE */
+    #specialMessage {
+        display: none;
+        margin-top: 25px;
+        background: var(--whiteGlass);
+        padding: 25px;
+        border-radius: 18px;
+        animation: fadeIn 1.2s ease;
+    }
+
+    .typing {
+        white-space: pre-line;
+        border-right: 3px solid var(--pink3);
+        animation: blink 0.8s infinite;
+        padding-right: 5px;
+    }
+
+    @keyframes blink {
+        50% { border-color: transparent; }
+    }
+
+    /* PHOTO GALLERY UPGRADED */
+    .gallery {
+        margin-top: 40px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .photo-card {
+        width: 220px;
+        height: 220px;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 6px 18px rgba(255, 120, 180, 0.25);
+        transition: 0.35s;
+        transform-style: preserve-3d;
+    }
+
+    .photo-card:hover {
+        transform: scale(1.07) rotate3d(1, 1, 0, 8deg);
+    }
+
+    .photo-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* FOOTER */
+    .footer {
+        text-align: center;
+        padding: 15px;
+        margin-top: 40px;
+        font-size: 1rem;
+        background: #333;
+        color: white;
+        border-radius: 18px 18px 0 0;
+    }
+</style>
+
+</head>
+
+<body>
+
+<!-- Floating particles -->
+<script>
+for (let i = 0; i < 35; i++) {
+    let p = document.createElement("div");
+    p.classList.add("particle");
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.animationDuration = (Math.random() * 5 + 4) + "s";
+    p.style.width = p.style.height = Math.random() * 12 + "px";
+    document.body.appendChild(p);
+}
+</script>
+
+<!-- HERO SECTION -->
+<div class="hero">
+    <h1 class="hero-title">Selamat Ulang Tahun, Ulfa 🎀</h1>
+    <p class="subtext">semoga di setiap langkah yang kamu ambil,
+                        kebahagiaan selalu memilih untuk berjalan bersamamu.
+
+                        Semoga semua hal indah datang kepadamu dengan cara yang paling lembut,
+                        seperti caramu hadir di hidupku.
+
+                        Di umurmu yang baru ini, semoga hatimu semakin tenang,
+                        mimpimu semakin dekat,
+                        dan cintamu semakin dipeluk oleh orang yang benar-benar menghargaimu…
+
+Semoga hari ini dan seterusnya,
+kamu selalu menemukan alasan baru untuk tersenyum. ✨</p>
+</div>
+<!-- FOTO UTAMA ULFA + ANIMASI LILIN -->
+<div class="cake-container" 
+     style="max-width:260px; margin:auto; position:relative; margin-top:10px;">
+
+    <!-- FOTO ULFA -->
+    <img src="fto 1.jpg"
+         alt="Happy Birthday Ulfa"
+         class="cake-image"
+         style="
+            width:100%; 
+            border-radius:18px; 
+            box-shadow:0 8px 25px rgba(0,0,0,0.18);
+         ">
+
+    <!-- LILIN ANIMASI -->
+    <div style="
+        position:absolute; 
+        left:50%; 
+        top:-25px; 
+        transform:translateX(-50%);
+        width:10px;
+        height:40px;
+        background:#d42a70;
+        border-radius:5px;
+        z-index:5;
+    "></div>
+
+    <div class="flame-anim" style="
+        position:absolute;
+        left:50%;
+        top:-45px;
+        transform:translateX(-50%);
+        width:18px;
+        height:28px;
+        background:#ffcc5c;
+        border-radius:50% 50% 40% 40%;
+        box-shadow:
+            0 0 10px #ffdd55,
+            0 0 20px #ffbb33,
+            0 0 30px #ff9933;
+        animation:flicker 1.1s infinite alternate;
+        z-index:6;
+    "></div>
+</div>
+
+<style>
+@keyframes flicker {
+    0% { transform:translateX(-50%) scale(1); opacity:1; }
+    50% { transform:translateX(-50%) scale(1.12); opacity:0.85; }
+    100% { transform:translateX(-50%) scale(0.95); opacity:1; }
+}
+</style>
+
+
+
+<!-- UCAPAN -->
+<div class="glass-card">
+    <h2>Untuk Kamu yang Paling Manis 💗</h2>
+    <p>
+        Hari ini bukan hanya hari spesial buatmu, tapi juga hari yang membuat dunia terasa lebih indah.  
+        Teruslah bersinar, Ulfa 💗 — karena dunia terlihat lebih indah setiap kali kamu tersenyum.
+        Apalagi Pas Kmu Senyum Di Depan Aku Rasanya Sepetri Di Senyumin Bidadari Jatuh Dari Pacet. haha  
+    </p>
+</div>
+
+<!-- BUTTON SPECIAL MESSAGE -->
+<button class="btn" id="btnWish">✨ Lihat Ucapan Spesial ✨</button>
+
+<div id="specialMessage">
+    <h2>💌 Pesan Dari Hati untukmu 💌</h2>
+    <p id="typing" class="typing"></p>
+</div>
+
+<!-- GALLERY -->
+<h2 style="font-family:Merienda; margin-top:40px; color:var(--pink3);">Kenangan Indah Bersama 💞</h2>
+
+<div class="gallery">
+    <div class="photo-card"><img src="IMG-20251211-WA0010.jpg"></div>
+    <div class="photo-card"><img src="IMG-20251211-WA0011.jpg"></div>
+    <div class="photo-card"><img src="IMG-20251211-WA0008.jpg"></div>
+    <div class="photo-card"><img src="IMG-20251211-WA0006.jpg"></div>
+
+    <div class="photo-card"><img src="IMG-20251012-WA0005.jpg"></div>
+    <div class="photo-card"><img src="IMG-20251211-WA0007.jpg"></div>
+    <div class="photo-card"><img src="IMG-20251211-WA0012.jpg"></div>
+    <div class="photo-card"><img src="IMG-20251211-WA0009.jpg"></div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2025-12-12 Wann | Selamat ulang tahun Buat Kamu Yang Paling Ku Tunggu 🎉
+</div>
+
+<script>
+/* Button ripple */
+document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        const rect = btn.getBoundingClientRect();
+        btn.style.setProperty('--x', e.clientX - rect.left + 'px');
+        btn.style.setProperty('--y', e.clientY - rect.top + 'px');
+    });
+});
+
+/* Typing effect */
+let text = `Terima kasih sudah jadi seseorang yang membawa ketenangan hanya dengan kehadiranmu.
+Aku berharap di setiap langkahmu, kamu selalu menemukan hal-hal baik yang membuatmu tersenyum…
+dan semoga kamu selalu dikelilingi cinta yang tulus, termasuk cintaku untukmu.
+
+maaf ya kalau aku belum bisa jadi laki-laki yang kamu banggakan.
+Maaf kalau aku sering gagal jadi orang yang kamu butuhkan.
+Kadang aku sendiri merasa tidak cukup… dan itu menyakitkan.
+Tapi meski aku belum sempurna, perasaanku ke kamu selalu tulus.
+Aku cuma berharap suatu hari nanti… aku bisa jadi seseorang yang benar-benar pantas buat kamu
+
+aku minta maaf kalau selama ini aku lebih sering jadi beban daripada jadi tempat kamu bersandar.
+Aku tahu… aku belum bisa jadi laki-laki yang kamu impikan, yang kuat, yang matang, yang kamu bisa andalkan setiap saat.
+Kadang aku lihat diriku sendiri dan aku sadar… mungkin aku jauh dari cukup untuk kamu.
+Dan jujur… itu bikin aku sedih. Bikin aku takut kehilangan kamu.
+
+Tapi satu hal yang nggak pernah berubah… aku selalu nyimpen perasaan tulus buat kamu.
+Aku cuma berharap suatu hari nanti, kamu lihat aku bukan dari kurangnya…
+tapi dari semua usaha kecilku untuk tetap bertahan, demi bisa jadi seseorang yang lebih layak buat kamu
+Semoga Kmu Bisa Mengerti Ya Yg Aku Ucapkan dan bisa Melihat Aku Kembali dan semoga kita bertemu kembali yaaa
+See You Buat kmu yg aku tunggu kabar baiknya moga kita bertemu lgi di lain waktu.
+ 💗`;
+
+let i = 0;
+
+document.getElementById("btnWish").addEventListener("click", () => {
+    document.getElementById("specialMessage").style.display = "block";
+    type();
+    document.getElementById("btnWish").style.display = "none";
+});
+
+function type() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 40);
+    }
+}
+</script>
+
+</body>
+</html>
